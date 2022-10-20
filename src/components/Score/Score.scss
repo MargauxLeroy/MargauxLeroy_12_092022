@@ -1,0 +1,28 @@
+.score {
+  position: relative;
+
+  .score-title {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+  }
+
+  .objective-pourcentage {
+    position: absolute;
+    // top:
+    // left:;
+    // transform: translateX(-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    text-align: center;
+    font-size: 14px;
+    color: var(--grey);
+
+    span {
+      font-size: 24px;
+      color: var(--grey-dark);
+    }
+  }
+}

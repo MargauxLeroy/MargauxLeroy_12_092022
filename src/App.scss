@@ -1,3 +1,62 @@
-p {
-  font-size: 100px;
+/// HOME
+.app-content {
+  display: flex;
+  // flex: 1;
+  width: 100%;
+  height: 90%;
+
+  .dashboard {
+    padding: 3% 4%;
+    row-gap: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+
+    .hello {
+      h1 > span {
+        color: var(--main-color);
+      }
+
+      p {
+        font-weight: 400;
+      }
+    }
+
+    .graphs {
+      display: flex;
+      column-gap: 1em;
+      height: 80%;
+
+      .primary-zone {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1em;
+        width: 76%;
+
+        .primary-zone-bottom {
+          display: flex;
+          column-gap: 1em;
+          height: 40%;
+
+          .child {
+            background-color: var(--grey-light);
+            border-radius: 5px;
+            width: 32%;
+          }
+
+          .average-sessions {
+            background-color: var(--main-color);
+          }
+        }
+      }
+
+      .secondary-zone {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1em;
+        width: 24%;
+      }
+    }
+  }
 }

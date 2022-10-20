@@ -1,0 +1,42 @@
+.main-graph {
+  background-color: var(--grey-light);
+  height: 56%;
+
+  .main-graph-title {
+    height: 24%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em;
+
+    .legend {
+      display: flex;
+      column-gap: 1em;
+
+      > div {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5em;
+      }
+
+      > div:nth-child(1) > span {
+        background-color: var(--grey-dark);
+      }
+
+      > div:nth-child(2) > span {
+        background-color: var(--main-color-dark);
+      }
+
+      span {
+        height: 8px;
+        width: 8px;
+        border-radius: 99px;
+      }
+
+      p {
+        color: var(--grey);
+        font-size: 14px;
+      }
+    }
+  }
+}

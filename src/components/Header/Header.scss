@@ -1,8 +1,27 @@
 header {
+  background-color: var(--dark);
   display: flex;
+  padding: 16px 32px;
 
-  .entries {
+  ul {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 2em;
+    color: var(--white);
+
+    li {
+      font-size: calc(0.4em + 1vw);
+      padding: 0.75em;
+
+      a {
+        color: var(--white);
+      }
+    }
+  }
+
+  img {
+    height: 3.5em;
   }
 }

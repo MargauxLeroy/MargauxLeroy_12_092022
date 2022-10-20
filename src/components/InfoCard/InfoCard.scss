@@ -1,0 +1,39 @@
+.info-card {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+
+  background-color: var(--grey-light);
+  padding: 2em;
+  height: 100%;
+
+  img {
+    padding: 1em;
+    border-radius: 6px;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  p {
+    font-size: 0.875em;
+    color: var(--grey);
+  }
+}
+
+div.info-card:nth-child(1) > img:nth-child(1) {
+  background-color: #fbeaea;
+}
+
+div.info-card:nth-child(2) > img:nth-child(1) {
+  background-color: #e9f4fb;
+}
+
+div.info-card:nth-child(3) > img:nth-child(1) {
+  background-color: #fbf6e5;
+}
+
+div.info-card:nth-child(4) > img:nth-child(1) {
+  background-color: #fbeaef;
+}

@@ -2,18 +2,25 @@ import React from "react";
 
 import "./Header.scss";
 
-import { AppLogo } from "../Logo/Logo";
+import AppLogo from "../../assets/logo.svg";
 
 export function Header() {
   return (
     <header>
-      {/* <img src="../../assets/logo.svg" alt="" /> */}
-      <AppLogo />
-      <ul className="entries">
-        <li>Accueil</li>
-        <li>Profil</li>
-        <li>Réglage</li>
-        <li>Communauté</li>
+      <img src={AppLogo} alt="Logo" />
+      <ul>
+        <li>
+          <a href="">Accueil</a>
+        </li>
+        <li>
+          <a href="#">Profil</a>
+        </li>
+        <li>
+          <a href="#">Réglage</a>
+        </li>
+        <li>
+          <a href="#">Communauté</a>
+        </li>
       </ul>
     </header>
   );
