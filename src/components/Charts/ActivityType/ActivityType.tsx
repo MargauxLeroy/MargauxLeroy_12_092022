@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Radar,
   RadarChart,
@@ -6,15 +6,11 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
-import { UserContext } from "../../App";
-import { usePerformance } from "../../utils/fetch";
 
 import "./ActivityType.scss";
 
+//performanceData: Performance
 export default function ActivityType() {
-  const userContext = useContext(UserContext);
-  const performance = usePerformance(userContext.user);
-
   return (
     <div className="activity-type child">
       <ResponsiveContainer

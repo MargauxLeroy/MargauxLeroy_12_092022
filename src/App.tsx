@@ -1,30 +1,27 @@
-import React, { useState, createContext } from "react";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { Home as Dashboard } from "./pages/Dashboard";
+
+import Error404 from "./pages/Error404";
+import Redirection from "./pages/Redirection";
 
 import "./App.scss";
-
-import { Home } from "./pages/Home";
-
-type User = "12" | "18";
-
-type UserContextType = {
-  user: User;
-  setUser: (user: User) => void;
-};
-
-const DEFAULT_USER_CONTEXT: UserContextType = {
-  user: "18",
-  setUser: (user: User) => {},
-};
-
-export const UserContext = createContext(DEFAULT_USER_CONTEXT);
+import DataProvider from "./components/UserProvider/DataProvider";
 
 function App() {
-  const [user, setUser] = useState<User>("18");
-
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <Home />
-    </UserContext.Provider>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" index element={<Redirection />} />
+
+          <Route path="user/:userId" element={<Dashboard />} />
+
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   );
 }
 

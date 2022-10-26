@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   BarChart,
   Bar,
@@ -15,16 +15,16 @@ import {
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
 
-import { UserContext } from "../../App";
-import { useActivity } from "../../utils/fetch";
+import { Activity } from "../../../models/activity_model";
 
 import "./DailyActivity.scss";
 
-export default function DailyActivity() {
-  const userContext = useContext(UserContext);
-  const activity = useActivity(userContext.user);
-
-  const sessions = activity.activity?.sessions || [];
+export default function DailyActivity({
+  activityData,
+}: {
+  activityData: Activity | undefined;
+}) {
+  const sessions = activityData?.sessions || [];
   const data = sessions;
 
   const minKg = Math.min(...sessions.map((e) => e.kilogram));

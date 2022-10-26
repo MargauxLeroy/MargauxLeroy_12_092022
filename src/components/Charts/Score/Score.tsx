@@ -1,21 +1,20 @@
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
-import { UserContext } from "../../App";
-import { useUser } from "../../utils/fetch";
 
 import "./Score.scss";
 
-export default function Score() {
-  const userContext = useContext(UserContext);
-  const user = useUser(userContext.user);
-
+export default function Score({
+  todayScore,
+}: {
+  todayScore: number | undefined;
+}) {
   const userScore = useMemo(() => {
-    const score = user.user?.todayScore;
+    const score = todayScore;
     if (score != null) {
       return score * 100;
     }
     return 0;
-  }, [user.user?.todayScore]);
+  }, [todayScore]);
 
   const whitePie = [{ value: 100 }];
 

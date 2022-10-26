@@ -59,4 +59,39 @@
       }
     }
   }
+
+  .redirection {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
+
+    button {
+      padding: 12px;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      height: 48px;
+      background-color: var(--dark);
+    }
+
+    .grey {
+      background-color: var(--grey-dark);
+    }
+
+    .red {
+      background-color: var(--main-color);
+    }
+  }
+
+  .error {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 12px;
+  }
 }

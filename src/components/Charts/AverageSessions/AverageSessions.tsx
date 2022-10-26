@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   LineChart,
   Line,
@@ -12,24 +12,14 @@ import {
   NameType,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
-
-// import styled from "styled-components";
+// import { useAverageSessions } from "../../../utils/fetch";
+import { UserContext } from "../../UserProvider/UserProvider";
 
 import "./AverageSessions.scss";
 
 export default function AverageSessions() {
-  // const ReferenceBand = ({ cx }) => {
-  //     return (
-  //         <rect
-  //             x={cx}
-  //             y={0}
-  //             width="100%"
-  //             height="100%"
-  //             fill={"black"}
-  //             fillOpacity={0.2}
-  //         />
-  //     )
-  // }
+  const userContext = useContext(UserContext);
+  // const averageSessions = useAverageSessions(userContext.user);
 
   const CustomTooltip = ({
     active,

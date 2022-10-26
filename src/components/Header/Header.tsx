@@ -3,6 +3,7 @@ import React from "react";
 import "./Header.scss";
 
 import AppLogo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -10,7 +11,7 @@ export function Header() {
       <img src={AppLogo} alt="Logo" />
       <ul>
         <li>
-          <a href="">Accueil</a>
+          <Link to="/">Accueil</Link>
         </li>
         <li>
           <a href="#">Profil</a>
