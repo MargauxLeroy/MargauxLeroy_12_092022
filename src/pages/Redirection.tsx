@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { NavigationBar } from "../components/NavigationBar/NavigationBar";
-import { DataContext } from "../components/UserProvider/DataProvider";
+import { DataContext } from "../components/Providers/DataProvider";
 
 function Redirection() {
   const dataContext = useContext(DataContext);

@@ -1,9 +1,8 @@
 /**
- * Une seule fonction générale de fetch
+ * Function that will fetch the URI
  * @param uri
- * @returns
+ * @returns { Promise<any> }
  */
-
 export const fetchData = async (uri?: string) => {
   if (!uri) return;
   console.log(uri);
@@ -13,12 +12,3 @@ export const fetchData = async (uri?: string) => {
 
   return response.data;
 };
-
-// const createClass = (uri: string) => {
-//   /// TODO fonction(uri) => pour retourner les class (grâce au path)
-//   const resource = uri.split("/")[uri.length - 1];
-
-//   if (resource === "performance") {
-//     return new Performance();
-//   }
-// };

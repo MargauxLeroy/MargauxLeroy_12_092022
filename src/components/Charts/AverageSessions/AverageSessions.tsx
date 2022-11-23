@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -12,14 +12,25 @@ import {
   NameType,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
-// import { useAverageSessions } from "../../../utils/fetch";
-import { UserContext } from "../../UserProvider/UserProvider";
+
+import { AverageSessionsModel } from "../../../models/averageSessionsModel";
 
 import "./AverageSessions.scss";
 
-export default function AverageSessions() {
-  const userContext = useContext(UserContext);
-  // const averageSessions = useAverageSessions(userContext.user);
+export default function AverageSessions({
+  averageSessionsData,
+}: {
+  averageSessionsData: AverageSessionsModel | undefined;
+}) {
+  const data = averageSessionsData?.sessions;
+  const days = ["L", "M", "M", "J", "V", "S", "D"];
+
+  const formatedData = data?.map((data) => {
+    return {
+      day: days[data.day - 1],
+      sessionLength: data.sessionLength,
+    };
+  });
 
   const CustomTooltip = ({
     active,
@@ -42,7 +53,7 @@ export default function AverageSessions() {
   };
 
   const CustomCursor = (props: any) => {
-    const { points, width, height } = props;
+    const { points, width } = props;
     const { x } = points[0];
     return (
       <Rectangle
@@ -64,7 +75,7 @@ export default function AverageSessions() {
         <LineChart
           // width={500}
           // height={300}
-          data={data}
+          data={formatedData}
           margin={{
             top: 64,
             bottom: 5,
@@ -73,7 +84,7 @@ export default function AverageSessions() {
           }}
         >
           <XAxis
-            dataKey="days"
+            dataKey="day"
             tick={{ fill: "#FFFFFF", fontSize: 14, opacity: 0.5 }}
             tickLine={false}
             axisLine={false}
@@ -97,52 +108,13 @@ export default function AverageSessions() {
           <Line
             unit="min"
             type="monotone"
-            dataKey="sessionTime"
+            dataKey="sessionLength"
             stroke="#fff"
             strokeWidth={2}
             dot={false}
-            //   activeDot={() => }
           />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 }
-
-const data = [
-  {
-    days: "L",
-    sessionTime: 4000,
-    amt: 2400,
-  },
-  {
-    days: "M",
-    sessionTime: 3000,
-    amt: 2210,
-  },
-  {
-    days: "M",
-    sessionTime: 2000,
-    amt: 2290,
-  },
-  {
-    days: "J",
-    sessionTime: 2780,
-    amt: 2000,
-  },
-  {
-    days: "V",
-    sessionTime: 1890,
-    amt: 2181,
-  },
-  {
-    days: "S",
-    sessionTime: 2390,
-    amt: 2500,
-  },
-  {
-    days: "D",
-    sessionTime: 3490,
-    amt: 2100,
-  },
-];

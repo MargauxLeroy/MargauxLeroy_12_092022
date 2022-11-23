@@ -7,7 +7,7 @@ import Error404 from "./pages/Error404";
 import Redirection from "./pages/Redirection";
 
 import "./App.scss";
-import DataProvider from "./components/UserProvider/DataProvider";
+import DataProvider from "./components/Providers/DataProvider";
 
 function App() {
   return (

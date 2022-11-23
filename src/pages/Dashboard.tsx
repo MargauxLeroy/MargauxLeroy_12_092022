@@ -17,29 +17,40 @@ import AverageSessions from "../components/Charts/AverageSessions/AverageSession
 import { uriMock } from "../constants/uri_mock";
 import { uriApi } from "../constants/uri_api";
 
-import { DataContext } from "../components/UserProvider/DataProvider";
+import { DataContext } from "../components/Providers/DataProvider";
 import { Navigate, useParams } from "react-router-dom";
-import { useActivity, usePerformance, useUser } from "../utils/states";
+
+import {
+  useActivity,
+  useAverageSessions,
+  usePerformance,
+  useUser,
+} from "../utils/states";
 
 export function Home() {
-  /// On récupère l'id dans l'URL
+  /// We retrieve the user from the URL
   const params = useParams();
   const userId = params.userId;
 
-  /// On récupère l'uri en fonction du context
+  /// We retrieve the URI according to the context
   const dataContext = useContext(DataContext);
   const uri = dataContext.isApi ? uriApi : uriMock;
 
-  /// On récupère les données grâce aux states
-  const user = useUser(userId, uri).user;
-  const activity = useActivity(userId, uri).activity;
-  const performance = usePerformance(userId, uri).performance;
+  /// We collect datas from states
+  const { user, loading } = useUser(userId, uri);
+  const activity = useActivity(userId, uri);
+  const performance = usePerformance(userId, uri);
+  const averageSessions = useAverageSessions(userId, uri);
 
   const firstName = user?.userInfos.firstName;
   const keyData = user?.keyData;
   const todayScore = user?.todayScore;
 
-  if (!userId) {
+  if (loading) {
+    return <p>loading...</p>;
+  }
+
+  if (!userId || !user) {
     return <Navigate to={"/404"} />;
   }
 
@@ -51,7 +62,7 @@ export function Home() {
         <div className="dashboard">
           <div className="hello">
             <h1>
-              Bonjour <span>{firstName}</span>
+              Bonjour <span>{firstName == null ? "..." : firstName}</span>
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
@@ -59,8 +70,8 @@ export function Home() {
             <div className="primary-zone">
               <DailyActivity activityData={activity} />
               <div className="primary-zone-bottom">
-                <AverageSessions />
-                <ActivityType />
+                <AverageSessions averageSessionsData={averageSessions} />
+                <ActivityType activityTypeData={performance} />
                 <Score todayScore={todayScore} />
               </div>
             </div>

@@ -1,39 +1,29 @@
-## CREATE REACT APP : Available Scripts
+<img width="300" height="100" src="https://github.com/MargauxLeroy/MargauxLeroy_12_092022/tree/dev/src/assets/logo.svg">
 
-In the project directory, you can run:
+## Develop an analytics dashboard with React
 
-### `npm start`
+SportSee : Tableau de bord de suivi sportif.
+Projet OpenClassrooms. Septembre-Octobre 2022.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [https://nodejs.org/en/]NodeJS v14.17.6
+- [https://www.npmjs.com/]npm v8.18.0
+- [https://fr.reactjs.org/]React v18.2.0
 
-### `npm run build`
+### Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- SAAS v1.54.9 : `npm install sass --save-dev`
+- Typescript v4.8.3: `npm install typescript`
+- React Router v6.4.2 : `npm install react-router-dom`
+- React Recharts v2.1.14 : `npm install recharts`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Install Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Clone repository : `git clone https://github.com/MargauxLeroy/P9-front-end-dashboard`
+- Launch on [http://localhost:3000]localhost:3000 : `npm run start`
 
-### `npm run eject`
+### Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## SASS
-
-### `npm install sass --save-dev`
-
-## RECHART
-
-### `npm install recharts`
+- Clone repository : `https://github.com/MargauxLeroy/MargauxLeroy_12_092022`
+- Launch on [http://localhost:3001]localhost:3001 : `npm run start`

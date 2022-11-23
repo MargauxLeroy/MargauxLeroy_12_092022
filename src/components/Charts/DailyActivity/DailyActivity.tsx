@@ -15,7 +15,7 @@ import {
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
 
-import { Activity } from "../../../models/activity_model";
+import { Activity } from "../../../models/activityModel";
 
 import "./DailyActivity.scss";
 
