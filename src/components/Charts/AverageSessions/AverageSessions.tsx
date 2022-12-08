@@ -36,7 +36,7 @@ export default function AverageSessions({
     active,
     payload,
   }: TooltipProps<ValueType, NameType>) => {
-    if (active && payload && payload.length) {
+    if (active && payload) {
       return (
         <div
           style={{
@@ -73,8 +73,6 @@ export default function AverageSessions({
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          // width={500}
-          // height={300}
           data={formatedData}
           margin={{
             top: 64,

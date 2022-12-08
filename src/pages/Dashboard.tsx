@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { Header } from "../components/Header/Header";
 import { InfoCard } from "../components/InfoCard/InfoCard";
@@ -27,7 +27,7 @@ import {
   useUser,
 } from "../utils/states";
 
-export function Home() {
+export function Dashboard() {
   /// We retrieve the user from the URL
   const params = useParams();
   const userId = params.userId;

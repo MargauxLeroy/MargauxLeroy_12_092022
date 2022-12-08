@@ -11,7 +11,6 @@ import { User } from "../models/userModel";
 import { fetchData } from "./fetch";
 
 /**
- *
  * @param userId
  * @param uri
  * @returns { User | undefined }
@@ -54,14 +53,15 @@ export const useActivity = (userId: string | undefined, uri: API | MOCK) => {
   const [activity, setActivity] = useState<Activity>();
 
   useEffect(() => {
-    fetchData(uri.userActivity(userId)).then(setActivity);
+    fetchData(uri.userActivity(userId))
+      .then((data: any) => new Activity(data.userId, data.sessions))
+      .then(setActivity);
   }, [userId, uri]);
 
   return activity;
 };
 
 /**
- *
  * @param userId
  * @param uri
  * @returns { PerformanceModel | undefined }
@@ -70,14 +70,17 @@ export const usePerformance = (userId: string | undefined, uri: API | MOCK) => {
   const [performance, setPerformance] = useState<PerformanceModel>();
 
   useEffect(() => {
-    fetchData(uri.userPerformance(userId)).then(setPerformance);
+    fetchData(uri.userPerformance(userId))
+      .then(
+        (data: any) => new PerformanceModel(data.userId, data.kind, data.data)
+      )
+      .then(setPerformance);
   }, [userId, uri]);
 
   return performance;
 };
 
 /**
- *
  * @param userId
  * @param uri
  * @returns { AverageSessionsModel | undefined }
@@ -90,7 +93,11 @@ export const useAverageSessions = (
     useState<AverageSessionsModel>();
 
   useEffect(() => {
-    fetchData(uri.userAverageSessions(userId)).then(setAverageSessions);
+    console.log(uri.userAverageSessions(userId));
+
+    fetchData(uri.userAverageSessions(userId))
+      .then((data: any) => new AverageSessionsModel(data.userId, data.sessions))
+      .then(setAverageSessions);
   }, [userId, uri]);
 
   return averageSessions;

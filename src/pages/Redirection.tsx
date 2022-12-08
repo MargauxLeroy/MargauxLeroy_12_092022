@@ -5,8 +5,11 @@ import { NavigationBar } from "../components/NavigationBar/NavigationBar";
 import { DataContext } from "../components/Providers/DataProvider";
 
 function Redirection() {
+  /// We retrieve the context from the DataProvider
   const dataContext = useContext(DataContext);
   const isApi = dataContext.isApi;
+  console.log("dataContext: ", isApi);
+
   const className = isApi ? "red" : "grey";
 
   return (
@@ -21,10 +24,8 @@ function Redirection() {
           <Link to={`user/18`}>
             <button className={className}>Cécilia</button>
           </Link>
-
           <button
             onClick={() => {
-              console.log("dataContext: ", isApi);
               dataContext.setIsApi(!isApi);
             }}
           >

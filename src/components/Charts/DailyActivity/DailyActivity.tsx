@@ -39,11 +39,11 @@ export default function DailyActivity({
     active,
     payload,
   }: TooltipProps<ValueType, NameType>) => {
-    if (active && payload && payload.length) {
+    if (active && payload) {
       return (
         <div>
-          <p> {`${payload[0].value} kg`}</p>
-          <p> {`${payload[1].value} kCal`}</p>
+          <p> {`${payload[0].value} kg`} </p>
+          <p> {`${payload[1].value} kCal`} </p>
         </div>
       );
     }

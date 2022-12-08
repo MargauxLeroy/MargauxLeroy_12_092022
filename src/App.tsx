@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Home as Dashboard } from "./pages/Dashboard";
+import { Dashboard } from "./pages/Dashboard";
 
 import Error404 from "./pages/Error404";
 import Redirection from "./pages/Redirection";

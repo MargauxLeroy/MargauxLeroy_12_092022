@@ -3,9 +3,8 @@
  * @param uri
  * @returns { Promise<any> }
  */
-export const fetchData = async (uri?: string) => {
+export const fetchData = async (uri?: string): Promise<any> => {
   if (!uri) return;
-  console.log(uri);
 
   const data = await fetch(uri);
   const response = await data.json();
